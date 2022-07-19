@@ -134,7 +134,8 @@
                  :page-size         (fn [v] (Storage$BlobListOption/pageSize (long v)))
                  :page-token        (fn [v] (Storage$BlobListOption/pageToken v))
                  :prefix            (fn [v] (Storage$BlobListOption/prefix v))
-                 :versions          (fn [v] (Storage$BlobListOption/versions (boolean v)))}]
+                 :versions          (fn [v] (Storage$BlobListOption/versions (boolean v)))
+                 :requester-pays    (fn [^String v] (Storage$BlobListOption/userProject v))}]
     (->> (for [[k v] options
                :let [opt-fn (get opt-map k)]
                :when opt-fn]
